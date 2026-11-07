@@ -1,0 +1,11 @@
+{
+  "domain": "neso_dfs",
+  "name": "NESO Demand Flexibility",
+  "codeowners": [],
+  "config_flow": true,
+  "documentation": "https://www.neso.energy/data-portal/demand-flexibility/dfs_utilisation_report",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "requirements": [],
+  "version": "0.2.0"
+}

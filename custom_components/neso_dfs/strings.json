@@ -1,0 +1,73 @@
+{
+  "title": "NESO Demand Flexibility",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Track NESO flexibility events",
+        "description": "Select the participant and numeric zone from the NESO report. Only Accepted Live events for the current UK delivery day are included.",
+        "data": {
+          "participant": "Registered DFS participant",
+          "zone": "NESO zone number",
+          "poll_interval": "Polling interval (minutes)",
+          "retention_days": "Completed days to retain"
+        },
+        "data_description": {
+          "participant": "Participants are discovered from all report rows, including history.",
+          "zone": "Use the NESO DFS zone number, which is different from your Home Assistant home zone.",
+          "poll_interval": "Default: every 15 minutes.",
+          "retention_days": "Default: 30 completed delivery days, plus today. Set 0 to keep today only; an ongoing overnight event remains until it ends."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not download or validate the NESO report. Try again.",
+      "no_participants": "The NESO report contains no participants. Try again later.",
+      "invalid_participant": "Select a participant from the report.",
+      "invalid_whole_number": "Enter a positive whole number.",
+      "invalid_options": "Polling must be a positive whole number of minutes; retention must be a nonnegative whole number of days."
+    },
+    "abort": {
+      "already_configured": "This participant and zone are already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Polling and history",
+        "data": {
+          "poll_interval": "Polling interval (minutes)",
+          "retention_days": "Completed days to retain"
+        }
+      }
+    },
+    "error": {
+      "invalid_options": "Polling must be a positive whole number of minutes; retention must be a nonnegative whole number of days."
+    }
+  },
+  "entity": {
+    "calendar": {
+      "events": {
+        "name": "Events"
+      }
+    },
+    "binary_sensor": {
+      "downwards_active": {
+        "name": "Downwards active"
+      },
+      "upwards_active": {
+        "name": "Upwards active"
+      },
+      "data_stale": {
+        "name": "Data stale"
+      }
+    },
+    "sensor": {
+      "last_new_event_detected": {
+        "name": "Last new event detected"
+      },
+      "last_successful_update": {
+        "name": "Last successful update"
+      }
+    }
+  }
+}
